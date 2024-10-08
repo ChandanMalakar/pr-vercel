@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NER Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/ner.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/2.png') }}" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div class="logo">My Portfolio</div>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <ul id="nav-menu">
+      <li><a href="/profile">Home</a></li>
+      <li><a href="/aboutme">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="ner-container">
+      <h1>NER</h1>
+      <p>Enter the text for NER analysis:</p>
+      <textarea name="user_text" id="user_text" rows="10" placeholder="Enter your text here..."></textarea>
+      <button type="submit">Analyze Text</button>
+      <div id="results"></div>
+    </div>
+  </div>
+
+  <!-- Include the Natural library (make sure it's properly linked in your project) -->
+  <script src="https://cdn.jsdelivr.net/npm/natural@3.3.0/dist/natural.min.js"></script>
+  <script>
+    function toggleMenu() {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.classList.toggle('open');
+    }
+
+    document.querySelector('button').addEventListener('click', function() {
+      const userText = document.getElementById('user_text').value;
+      // Tokenize the input text
+      const tokenizer = new natural.WordTokenizer();
+      const words = tokenizer.tokenize(userText);
+
+      // Perform NER analysis using the Natural library or your preferred method
+      const namedEntities = extractNamedEntities(words);  // Replace with your NER logic
+
+      // Display results in the results container
+      const resultsContainer = document.getElementById('results');
+      resultsContainer.innerHTML = '<h2>Named Entities:</h2><ul>';
+      namedEntities.forEach(entity => {
+        resultsContainer.innerHTML += `<li>${entity}</li>`;
+      });
+      resultsContainer.innerHTML += '</ul>';
+    });
+
+    // Replace this with your actual NER logic
+    function extractNamedEntities(words) {
+      // Placeholder for NER logic
+      return ['Person1', 'Location1', 'Organization1']; // Example results
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='images/2.png') }}" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <div class="logo">My Portfolio</div>
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+            &#9776;
+        </div>
+        <ul id="nav-menu">
+            <li><a href="/aboutme">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <h1>Login</h1>
+            {% if message %}
+                <p id="mess" style="color: {{ color }};">{{message}}</p>
+            {% endif %}
+            <br>
+            <form action="/perform_login" method="post">
+                <input type="email" placeholder="Email" name='user_ka_email' required>
+                <input type="password" placeholder="Password" name='user_ka_password' required>
+                <button type="submit">Login</button>
+            </form>
+            <br>
+            <p>Not a member? <a href="/register">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Include JavaScript for Hamburger Menu -->
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('open');
+
+            // Update ARIA attribute
+            const hamburger = document.querySelector('.hamburger');
+            const isOpen = navMenu.classList.contains('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        }
+
+        // Optional: Close menu when clicking outside
+        window.addEventListener('click', function(e) {
+            const navMenu = document.getElementById('nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', false);
+            }
+        });
+    </script>
+    <script src="{{ url_for('static', filename='js/login-animations.js') }}"></script>
+</body>
+</html>

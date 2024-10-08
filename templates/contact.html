@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="{{ url_for('static', filename='images/2.png') }}" type="image/x-icon">
+</head>
+<body>
+  <nav>
+    <div class="logo">My Portfolio</div>
+    <div class="hamburger">&#9776;</div> <!-- Hamburger icon -->
+    <ul>
+      <li><a href="/profile">Home</a></li>
+      <li><a href="/aboutme">About Me</a></li>
+      <li><a href="/project">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Contact Me</h1>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <!-- Left Half: Image -->
+    <div class="image-container">
+      <img src="{{ url_for('static', filename='images/my-photo.jpg') }}" alt="Chandan Malakar">
+    </div>
+
+    <!-- Right Half: Social Media Links -->
+    <div class="social-container">
+      <div class="social-link">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:chandanmalakar7549@gmail.com" target="_blank">Gmail</a>
+      </div>
+      <div class="social-link">
+        <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/chandanmalakar" target="_blank">LinkedIn</a>
+      </div>
+      <div class="social-link">
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/ChandanMalakar" target="_blank">GitHub</a>
+      </div>
+      <div class="social-link">
+        <i class="fab fa-twitter"></i>
+        <a href="https://x.com/chandan6209" target="_blank">Twitter</a>
+      </div>
+      <div class="social-link">
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/916209141001" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Chandan Malakar</p>
+  </footer>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <!-- Hamburger Menu JavaScript -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav ul');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

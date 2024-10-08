@@ -1,0 +1,326 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a2e;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+  font-size: 14px; /* Reduced base font size */
+}
+
+/* Navigation Styles */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 60px; /* Slightly reduced padding */
+  z-index: 1000;
+}
+
+nav .logo {
+  font-size: 1.6rem; /* Consistent with project.css */
+  color: #fff;
+  font-weight: 700;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px; /* Consistent gap */
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #00d4ff;
+}
+
+nav ul li a:visited {
+  color: #fff;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem; /* Consistent with project.css */
+  cursor: pointer;
+  color: white;
+}
+
+/* Header Styles */
+header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-top: 0;
+  z-index: 1;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.profile-info {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-info h1 {
+  font-size: 2.5rem; /* Reduced from 2.7rem to match project.css */
+  margin-bottom: 10px;
+}
+
+.profile-info p {
+  margin-bottom: 5px;
+  font-size: 1rem; /* Reduced from 1.1rem */
+}
+
+/* Heading Styles */
+.heading {
+  width: 100%;
+  background-color: #2e2e4e;
+  padding: 20px 60px; /* Slightly reduced padding */
+  text-align: left;
+  margin: 0;
+}
+
+.heading h2 {
+  font-size: 1.8rem; /* Reduced from 2rem */
+}
+
+@media (max-width: 768px) {
+  .heading {
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .heading h2 {
+    font-size: 1.6rem; /* Further reduced for mobile */
+  }
+}
+
+/* Main Section */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px; /* Reduced padding */
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px; /* Reduced gap */
+}
+
+.project-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 18px; /* Reduced padding */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s; /* Reduced transition duration */
+  width: 30%; /* Reduced from 31% */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-container:hover {
+  transform: scale(1.02); /* Reduced scale */
+  box-shadow: 0 12px 25px rgba(0, 212, 255, 0.8); /* Adjusted shadow for subtlety */
+}
+
+.project-container img {
+  width: 100%;
+  height: 130px; /* Reduced height */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-container h3 {
+  flex-grow: 1;
+  margin: 8px 0;
+  font-size: 1.2rem; /* Reduced from 1.3rem */
+}
+
+.project-container p {
+  flex-grow: 1;
+  margin: 8px 0;
+  font-size: 0.9rem; /* Reduced from 14px */
+}
+
+.project-container a {
+  flex-grow: 1;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(0, 212, 255, 0.1);
+  padding: 8px; /* Reduced padding */
+  border-radius: 20px;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; /* Reduced transition duration */
+}
+
+.project-container a:hover {
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 212, 255, 0.6); /* Reduced shadow */
+  background-color: #10d4ff;
+}
+
+/* Footer Styles */
+footer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 16px; /* Reduced padding */
+  text-align: center;
+}
+
+footer p {
+  margin: 0 0 10px 0;
+  text-align: left;
+  font-size: 0.9rem; /* Reduced font size */
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Reduced gap */
+}
+
+footer li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem; /* Reduced font size */
+}
+
+footer li a:hover {
+  color: #00d4ff;
+}
+
+/* Media Query for Mobile Views */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    padding: 10px 20px; /* Adjusted padding for mobile */
+  }
+
+  header {
+    margin-top: 55px;
+  }
+
+  main {
+    padding: 12px 20px; /* Adjusted padding for mobile */
+  }
+
+  .projects {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Reduced gap */
+  }
+
+  .project-container {
+    width: 100%;
+    height: auto;
+  }
+
+  footer ul {
+    flex-direction: column;
+    gap: 10px; /* Reduced gap */
+  }
+
+  footer p {
+    text-align: center;
+    font-size: 0.9rem; /* Consistent font size */
+  }
+}
+
+/* Responsive Styles for Larger Screens */
+@media (min-width: 1024px) {
+  header {
+    margin-top: 70px;
+  }
+
+  nav {
+    padding: 16px 60px; /* Consistent padding */
+  }
+
+  nav ul {
+    gap: 22px; /* Consistent gap */
+  }
+
+  .profile-info h1 {
+    font-size: 2.5rem; /* Consistent font size */
+  }
+
+  .projects {
+    gap: 30px; /* Consistent gap */
+  }
+
+  .project-container {
+    width: 30%; /* Consistent width */
+  }
+
+  footer ul {
+    gap: 40px; /* Consistent gap */
+  }
+}
+
+/* Accessibility Enhancements */
+a:focus, button:focus, .hamburger:focus {
+  outline: 2px solid #00d4ff;
+  outline-offset: 2px;
+}

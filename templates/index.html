@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="{{ url_for('static', filename='images/2.png') }}" type="image/x-icon">
+</head>
+<body>
+  <nav>
+    <div class="logo">My Portfolio</div>
+    <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">&#9776;</div> <!-- Hamburger icon -->
+    <ul id="nav-menu">
+      <li><a href="/profile">Home</a></li>
+      <li><a href="/aboutme">About Me</a></li>
+      <li><a href="/project">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="profile-info">
+      <h1>Chandan Malakar</h1>
+      <p>Aspiring Data Scientist</p>
+      <p>
+        Ever since I delved into the world of data, I realized how much I enjoy making sense of the numbers, patterns, and trends that often go unnoticed. Currently, I am learning machine learning, a key step toward my goal of becoming a data scientist in the near future.<br>
+        My journey into data science has taught me that “data is the new oil, and it's how we refine it that truly matters.” This mindset keeps me motivated to learn and explore more ways to work with data.<br>
+      </p>
+    </div>
+  </header>
+
+  <div class="heading"><h2>Featured Projects</h2></div>
+  
+  <main>
+    <section class="projects">
+      <!-- First Row of Project Containers -->
+      <div class="project-container">
+        <img src="{{ url_for('static', filename='images/ner.jpg') }}" alt="NER Project">
+        <h3>NER (Named Entity Recognition)</h3>
+        <p>NER is a subtask of NLP that aims to identify and classify named entities in text. These entities can be people, organizations, locations, dates, times, etc.<br></p>
+        <a href="/ner" class="read-more-btn">Read More</a>
+      </div>
+      <div class="project-container">
+        <img src="{{ url_for('static', filename='images/sen.jpg') }}" alt="Sentiment Analysis Project">
+        <h3>Sentiment Analysis</h3>
+        <p>Sentiment analysis is a technique used to determine the overall attitude or emotion expressed in a given text. It helps to classify text as positive, negative, or neutral.<br></p>
+        <a href="/sentiment-analysis" class="read-more-btn">Read More</a>
+      </div>
+      <div class="project-container">
+        <img src="{{ url_for('static', filename='images/loan-eligibility.jpg') }}" alt="Loan Eligibility Prediction Project">
+        <h3>Loan Eligibility Prediction</h3>
+        <p>Loan eligibility prediction is a ML technique used to assess an individual's likelihood of repaying a loan based on various factors such as credit history, income, etc.<br></p>
+        <a href="/loan-eligibility" class="read-more-btn">Read More</a>
+      </div>
+      
+      <!-- Second Row of Project Containers -->
+      <div class="project-container">
+        <img src="{{ url_for('static', filename='images/similar-images.jpg') }}" alt="Similar Images Finder Project">
+        <h3>Similar Images Finder</h3>
+        <p>Image similarity finding is a CV technique used to identify and measure the degree of similarity between two or more images. It's a fundamental task in various applications.</p>
+        <a href="/similar-images-finder" class="read-more-btn">Read More</a>
+      </div>
+      <div class="project-container">
+        <img src="{{ url_for('static', filename='images/recommender.jpg') }}" alt="Recommendation System Project">
+        <h3>Recommendation System</h3>
+        <p>Recommendation systems are algorithms that suggest items (e.g., products, movies, articles) to users based on their preferences or past behavior.</p>
+        <a href="/recommendation-system" class="read-more-btn">Read More</a>
+      </div>
+      <div class="project-container">
+        <img src="{{ url_for('static', filename='images/chatbot.jpg') }}" alt="Chatbot Application Project">
+        <h3>Chatbot Application</h3>
+        <p>Chatbots are programs designed to simulate human conversation through text or speech. They are used to interact with users in various ways.</p>
+        <a href="/chatbot-application" class="read-more-btn">Read More</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Chandan Malakar</p>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/chandanmalakar" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://x.com/chandan6209" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+      <li><a href="/contact" target="_blank" rel="noopener noreferrer">Contact</a></li>
+      <li>+91 6209141001</li>
+    </ul>
+  </footer>
+
+  <!-- Include JavaScript for Hamburger Menu -->
+  <script>
+    function toggleMenu() {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.classList.toggle('open');
+
+      // Update ARIA attribute
+      const hamburger = document.querySelector('.hamburger');
+      const isOpen = navMenu.classList.contains('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    }
+
+    // Close menu when clicking outside
+    window.addEventListener('click', function(e) {
+      const navMenu = document.getElementById('nav-menu');
+      const hamburger = document.querySelector('.hamburger');
+      if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      }
+    });
+
+    // Allow toggling menu with keyboard (Enter and Space)
+    const hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        toggleMenu();
+      }
+    });
+    
+    // Attach click event
+    hamburger.addEventListener('click', toggleMenu);
+  </script>
+  
+</body>
+</html>

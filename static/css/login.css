@@ -1,0 +1,264 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a2e;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00d4ff;
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding-top: 70px; /* Adjust to account for fixed navbar */
+    padding-bottom: 20px;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s, box-shadow 0.5s;
+    width: 320px; /* Maintained original width */
+    text-align: center;
+}
+
+.form-container #mess {
+    color: green;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+.form-container p {
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+.form-container p a {
+    color: cyan;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+.form-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background-color: #2e2e4e;
+    color: white;
+}
+
+button {
+    width: 60%; /* Button smaller than inputs */
+    padding: 15px;
+    background-color: #00d4ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 0 auto;
+    display: block; /* Center the button */
+}
+
+button:hover {
+    background-color: #00b3cc;
+    transform: scale(1.1); /* Slight animation on hover */
+}
+
+/* Results Section (if applicable) */
+#results {
+    margin-top: 30px;
+    text-align: left;
+}
+
+#results h2 {
+    margin-bottom: 10px;
+}
+
+#results ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: right;
+        transition: all 0.3s ease;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav ul li {
+        margin-bottom: 15px;
+    }
+
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+
+    .container {
+        padding: 20px 10px;
+    }
+
+    .form-container {
+        padding: 30px 20px;
+        width: 320px; /* Maintain original width */
+    }
+
+    .form-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-container p, .form-container p a {
+        font-size: 0.9rem;
+    }
+
+    button {
+        width: 80%;
+    }
+}
+
+/* Additional Breakpoints for Larger Screens */
+@media (min-width: 1200px) {
+    nav {
+        padding: 20px 100px;
+    }
+
+    .form-container {
+        /* Keep width at 320px */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .form-container p, .form-container p a {
+        font-size: 1.1rem;
+    }
+
+    button {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1600px) {
+    nav {
+        padding: 20px 150px;
+    }
+
+    .form-container {
+        /* Keep width at 320px */
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .form-container p, .form-container p a {
+        font-size: 1.2rem;
+    }
+
+    button {
+        width: 40%;
+    }
+}
+
+
+a:focus, button:focus, .hamburger:focus {
+    outline: 2px solid #00d4ff;
+    outline-offset: 2px;
+}
