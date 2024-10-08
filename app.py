@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, json
+from flask import Flask, render_template, request, redirect, session
 from db import Database
 
 
@@ -6,12 +6,6 @@ app = Flask(__name__)
 app.secret_key = '1lkdf75gh49cm1603rm04'
 dbo = Database()
 
-
-
-
-
-with open('users.json', 'r') as f:
-    user_data = json.load(f)
 
 @app.route('/')
 def index():
@@ -60,8 +54,15 @@ def perform_login():
 def profile():
     if 'user_email' not in session:  # Check if user is logged in
         return redirect('/login')
-    user_info = user_data.get(session['user_email'])
-    return render_template('index.html', user_info=user_info)
+    
+    # Since we no longer have `user_data`, fetch the user from the database
+    cursor = dbo.conn.execute("SELECT name FROM users WHERE email = ?", (session['user_email'],))
+    user_info = cursor.fetchone()
+
+    if user_info:
+        return render_template('index.html', user_info={'name': user_info[0]})
+    return redirect('/login')
+
 
 @app.route('/ner')
 def ner():
